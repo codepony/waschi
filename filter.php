@@ -24,7 +24,7 @@
 
   function in_filter($words){
 
-		$regex="/[^(a-zA-Z0-9 ÄÖÜäöüßéèêë)]/u";
+		$regex="/[^(a-zA-Z0-9 ÄÖÜäöüßÈÉÊËéèêë)]/u";
 		$limit=25; //Zeichenlimit
 
 		if(preg_match($regex, $words)==1) return true;
