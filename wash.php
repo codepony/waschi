@@ -33,6 +33,15 @@ $pf = file("pwds.php");
 
 $remoteserver=explode("\n",file_get_contents("http://waschi.org/servers.php"));
 
+function get_random_word(){
+  $rand_word=html_entity_decode(file_get_contents("http://dev.revengeday.de/pointlesswords/api/"), ENT_COMPAT, "UTF-8");
+  if(in_filter($rand_word)) {
+    $rand_word=get_random_word();
+  } else {
+    return $rand_word;
+  }
+}
+
 if(!count($remoteserver)<=1){
 
 	if($_SERVER['REQUEST_METHOD'] == "POST") {
@@ -44,7 +53,7 @@ if(!count($remoteserver)<=1){
       $pwd=sha1(md5(sha1($_POST["Password"]))); //Just in case, someone wants to bruteforce.
       
       if(isset($_POST["RandomWord"]) && $_POST["RandomWord"] == True){
-        $object= html_entity_decode(file_get_contents("http://dev.revengeday.de/pointlesswords/api/"), ENT_COMPAT, "UTF-8");
+        $object=get_random_word();
       }
       
       if(isset($_POST["TakeAway"]) && $_POST["TakeAway"] == True){
