@@ -35,10 +35,10 @@ $remoteserver=explode("\n",file_get_contents("http://waschi.org/servers.php"));
 
 function get_random_word(){
   $rand_word=html_entity_decode(file_get_contents("http://dev.revengeday.de/pointlesswords/api/"), ENT_COMPAT, "UTF-8");
-  if(in_filter($rand_word)) {
-    $rand_word=get_random_word();
-  } else {
+  if(!in_filter($rand_word)) {
     return $rand_word;
+  } else {
+    return get_random_word();
   }
 }
 
