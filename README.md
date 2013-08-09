@@ -36,6 +36,7 @@ Or a client like:
 - waschi-cs-client (https://github.com/pixeldesu/waschi-cs-client) written in C#
 - waschi-cli (https://github.com/fliiiix/waschi-cli/) written in ruby
 - washi-cli (https://github.com/vanita5/washi-cli) written in python
+- waschiclient-hs (https://github.com/FSBaerchen/waschiclient-hs) written in Haskell
 
 ## Installation
 
