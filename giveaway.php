@@ -21,15 +21,24 @@
 #    Identi.ca or Twitter:  @MeikoDis
 #    Email or Jabber:       meikodis@meikodis.org
 
+$remote_highscore = "http://waschi.org/test/highscore.php";
 
 function take_away($object, $user, $pwd, $ff, $uf, $pf, $status='', $answer=FALSE) {
+  # Change here if you want a different one:
   if(!in_filter($object) && !in_filter($user)){
     for($i = 0; $i < sizeof($ff); $i++){
       if( 0 == strcmp($ff[$i], $object."\n") && //Just a simple stringcompare to check input.
           0 == strcmp($uf[$i+1], $user."\n") &&
           0 == strcmp($pf[$i+1], $pwd."\n")){
-            $status="Hier ist dein ".$object.", ".$user.".";
+            $data=array("key1" => $key1, "key2" => $key2, "action" => "put", "user" => $user, "pwd" => $pwd);
+            post_request($remote_highscore, $data);
+
+            $look_data=array("key1" => $key1, "key2" => $key2, "action" => "look", "user" => $user, "pwd" => $pwd);
+            $score=post_request($remote_highscore, $look_data);
+
+            $status="Hier ist dein ".$object.", ".$user.". Anzahl der erfolgreichen Mitnahmen von dir:".$score['content'].".";
             $answer = TRUE;
+
             //Removing the object from the lists
             $ff[$i] = '';      
             $ff = array_filter($ff);
