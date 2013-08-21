@@ -21,9 +21,8 @@
 #    Identi.ca or Twitter:  @MeikoDis
 #    Email or Jabber:       meikodis@meikodis.org
 
-$remote_highscore = "http://waschi.org/highscore.php";
 
-function take_away($object, $user, $pwd, $ff, $uf, $pf, $status='', $answer=FALSE) {
+function take_away($object, $user, $pwd, $ff, $uf, $pf, $remote_highscore, $status='', $answer=FALSE)) {
   # Change here if you want a different one:
   if(!in_filter($object) && !in_filter($user)){
     for($i = 0; $i < sizeof($ff); $i++){
