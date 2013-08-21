@@ -35,7 +35,7 @@ function take_away($object, $user, $pwd, $ff, $uf, $pf, $remote_highscore, $stat
             $look_data=array("key1" => $key1, "key2" => $key2, "action" => "look", "user" => $user, "pwd" => $pwd);
             $score=post_request($remote_highscore, $look_data);
 
-            $status="Hier ist dein ".$object.", ".$user.". Anzahl der erfolgreichen Mitnahmen von dir:".$score['content'].".";
+            $status="Hier ist dein ".$object.", ".$user.". Anzahl der erfolgreichen Mitnahmen von dir: ".$score['content'];
             $answer = TRUE;
 
             //Removing the object from the lists

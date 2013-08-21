@@ -62,7 +62,7 @@ if(!count($remoteserver)<=1){
         $data = array("action" => "look", "user" => $user, "pwd" => $pwd);
         $status = post_request($remote_highscore, $data)["content"];
       } elseif(isset($_POST["TakeAway"]) && $_POST["TakeAway"] == True){
-        $status = take_away($object, $user, $pwd, $ff, $uf, $pf);
+        $status = take_away($object, $user, $pwd, $ff, $uf, $pf, $remote_highscore);
       } else {
     		if(!in_filter($object) && !in_filter($user)){
 
