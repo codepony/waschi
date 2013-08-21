@@ -55,8 +55,11 @@ if(!count($remoteserver)<=1){
       if(isset($_POST["RandomWord"]) && $_POST["RandomWord"] == True){
         $object=get_random_word();
       }
-      
-      if(isset($_POST["TakeAway"]) && $_POST["TakeAway"] == True){
+
+      if(isset($_POST["Score"]) && $_POST["Score"] == True){
+        $data = array("action" => "look", "user" => $user, "pwd" => $pwd);
+        $status = post_request($remote_highscore, $data)["content"];
+      } elseif(isset($_POST["TakeAway"]) && $_POST["TakeAway"] == True){
         $status = take_away($object, $user, $pwd, $ff, $uf, $pf);
       } else {
     		if(!in_filter($object) && !in_filter($user)){
