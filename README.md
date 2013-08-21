@@ -1,32 +1,25 @@
-# Waschi v1.0-alpha
+# Waschi v1.1
 ### (or Waschi Waschmaschinenverbund)
 
-##Changes done:
-- included a giveaway.php
-- changed some things in the original files
-- made my own "save-files"
-- create a 'users.php' and 'pwds.php'
-- put a `<?php' on the first line of those files - to make them unreadable for others.
-
-All other changes *should* be found in source. 
+##Current functions: 
+- Wash laundry
+- Wash randomly created laundry
+- Put laundry into Washi with a user and password 
+- Take away laundry from a Waschi-server when you know the user & password
+- See the score of a user when you know the password
+- See an actual highscore, which is manages centralized 
 
 ##TO-DO:
-
+- Improve the highscore system
 
 ##Future-Plans:
-- Get a pwds/users/found transfer betweet servers (like the current object transfer) (should work with this)
-- Put wash.php & giveaway.php together (nope!)
-- Same for index.php & getback.php (done!)
-- Write client-files (echowash.php like) to help coders by making work easier
-- Implement a function to send every success giveaway (just usernames) to waschi.org - For a cool high-score list!
-
-A "hide and seek of your laundry" network game over the whole webservers!
+- None at the moment, feel free to add requests
 
 ## Requirements
 For hosting:
-- A webserver!
+- A webserver
 - PHP5
-- Some water to drink.
+- Some water to drink
 
 For playing:
 - A browser
@@ -40,37 +33,37 @@ Or a client like:
 
 ## Installation
 
-Extract the files to your becoming waschi webfolder.
-Register your waschi at http://waschi.org
-Get your key via mail.
+- Extract the files from server/ to your path chosen for Waschi
+- Register your Waschi at http://waschi.org
+- Get the keys via mail
 
-Make a file named key.php with following content 
+Additional it is possible to set up your own network, for this please look into the source.
+
+Make a file named key.php with following content:
 ```php
 	<?php
 		$key1="KEY1_IN_EMAIL";
 		$key2="KEY2_IN_EMAIL";
 	?>
 ```
-...and save it in your waschi webfolder.
+...and save it in your Waschi folder.
 
 ### Rights
-It's important, that your *webserver has a read/write access* on your Waschi folder.
-For me that works using an apache webserver:
+It's important, that *your webserver* has read/write access in your Waschi folder
 
+Example settings for a common apache webserver:
 ```bash
 	chown root:www-data /path/to/your/waschi/webfolder
 	chmod 775 /path/to/your/waschi/webfolder
 	chmod -R 664 /path/to/your/waschi/webfolder/*
 ```
-
-
-**This may differs from your necessary access configuration.*
+*This may differ from your necessary access configuration*
 
 
 ### Clean the list
-I recommend to clear the list every week. You can do it via cronjob. I'm doing it every sunday in the noon.
-You can do it on your server through typing 
+It's recommended to clean up the found, users and pwds lists from time to time
 
+Example cronjobs:
 ```bash
 	echo "00 12 * * 0 www-data /bin/rm /YOUR/WASCHI/DIR/found 2> /dev/null" >> /etc/cron.d/waschi
 	echo "00 12 * * 0 www-data /bin/rm /YOUR/WASCHI/DIR/users.php 2> /dev/null" >> /etc/cron.d/waschi
@@ -78,9 +71,8 @@ You can do it on your server through typing
 	chmod +x /etc/cron.d/waschi
 ```
 
-### Register your Waschi!
+### Register your Waschi
 Go to http://waschi.org/register/ to register your Waschi. After registering you'll get two keys via mail which you have to put into a "key.php", or you will receive the whole key-file.
-
 
 
 ## License
@@ -88,7 +80,6 @@ Waschi (Waschi Waschmaschinenverbund) is licensed under GNU-AGPL v3+.
 
 
 See more at http://waschi.org/
-
 
 
 ##FAQ thing
