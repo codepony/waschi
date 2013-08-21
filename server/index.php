@@ -23,7 +23,7 @@
 
 
 	include("list.php");
-	include("wash.php");
+  include("wash.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -52,8 +52,14 @@
 Pl&ouml;tzlich aufgetauchte Gegenst&auml;nde mit unbekannter Herkunft: <br />
 <?php if(isset($list)) echo($list); ?>
 <br />
+<br />
+Aktuelle Highscore: <br />
+<?php
+$highscore = post_request($remote_highscore, array("action" => "list");
+echo(nl2br($highscore["content"]));
+?>
 <!-- Footer START | PLEASE don't remove this (Copyrightinformation)-->
-<a href="https://github.com/MeikoDis/waschi/archive/master.zip">Waschi</a> is licensed under <a href="http://www.gnu.org/licenses/agpl-3.0.de.html" target="_blank">GNU-AGPL v3</a> &copy; 2013 by <a href="http://meikodis.org/">MeikoDis</a>.<br />
+<a href="https://github.com/MeikoDis/waschi">Waschi</a> is licensed under <a href="http://www.gnu.org/licenses/agpl-3.0.de.html" target="_blank">GNU-AGPL v3</a> &copy; 2013 by <a href="http://meikodis.org/">MeikoDis</a>.<br />
 Further information, see <a href="http://waschi.org/" target="_blank">Waschi Waschmaschinenverbund</a>
 <br />
 <!-- Additional content -->

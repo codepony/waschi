@@ -33,6 +33,8 @@ $pf = file("pwds.php");
 
 $remoteserver=explode("\n",file_get_contents("http://waschi.org/servers.php"));
 
+$remote_highscore = "http://waschi.org/highscore.php";
+
 function get_random_word(){
   $rand_word=html_entity_decode(file_get_contents("http://dev.revengeday.de/pointlesswords/api/"), ENT_COMPAT, "UTF-8");
   if(!in_filter($rand_word)) {
@@ -55,9 +57,13 @@ if(!count($remoteserver)<=1){
       if(isset($_POST["RandomWord"]) && $_POST["RandomWord"] == True){
         $object=get_random_word();
       }
-      
-      if(isset($_POST["TakeAway"]) && $_POST["TakeAway"] == True){
-        $status = take_away($object, $user, $pwd, $ff, $uf, $pf);
+
+      if(isset($_POST["Score"]) && $_POST["Score"] == True){
+        $data = array("action" => "look", "user" => $user, "pwd" => $pwd);
+        $score = post_request($remote_highscore, $data);
+        $status = $score["content"];
+      } elseif(isset($_POST["TakeAway"]) && $_POST["TakeAway"] == True){
+        $status = take_away($object, $user, $pwd, $ff, $uf, $pf, $remote_highscore);
       } else {
     		if(!in_filter($object) && !in_filter($user)){
 

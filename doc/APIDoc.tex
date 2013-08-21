@@ -20,8 +20,6 @@
 \fancyfoot[RE,LO]{© 2013 MeikoDis GNU-FDL v1.3+} 
 
 
-
-
 \title{ 
  \texttt{
   \_\_\_\_ \\
@@ -31,10 +29,8 @@
   --------
  } \\Waschi Waschmaschinenverbund}
 
-\subtitle{API Documentation for clients \\ v1.0-alpha}
+\subtitle{API Documentation for clients \\ v1.1}
 \author{MeikoDis}
-
-
 
 
 \begin{document}
@@ -42,6 +38,7 @@
  \maketitle
  \thispagestyle{empty}
 
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%
 
  \newpage
  \vspace*{\fill}
@@ -56,11 +53,12 @@
  A copy of the license is included in the section entitled "GNU
  Free Documentation License".
 
-
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%
 
  \newpage
  \tableofcontents
 
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%
 
  \newpage
  \section{Preamble}
@@ -83,13 +81,13 @@
 
   \subsection{Using a waschi client}
    A client doesn't need any key. Since v1.0-alpha it is \textbf{forbidden to put in a valid key in your program}. Please stick by this. 
-   The client is fullfilling the task in the name of a (maybe choosed or random) web server from the "reachable servers" list.
+   The client is fulfilling the task in the name of a (maybe chosen or random) web server from the "reachable servers" list.
    \newline
 
 
 
  \section{Predefinitions}
-  We have some predefinitions to clearify.
+  We have some predefinitions to clarify
   \newline
 
   \begin{tabular}[ht]{|l|l|}
@@ -119,6 +117,7 @@
    \end{enumerate}
   \end{enumerate}
 
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%
 
  \newpage
 
@@ -128,7 +127,7 @@
   Why do you read this sentence?
 
   \subsection{The "reachable servers" list}
-   It is very simple to get the the "reachable servers" list. 
+   It is very simple to get the "reachable servers" list. 
    All you need to do is to GET \texttt{servers.php}. 
    The elements are divided in newlines. 
    Cut off \texttt{receive.php} at the end. 
@@ -189,7 +188,7 @@
      \vspace{4mm}
      \small\texttt{Kleidung=thingy \\ Username=Hugo \\ Password=mycock \\}
      \normalsize\newline
-     This will wash \texttt{thingy} with the default user datas.\newline
+     This will wash \texttt{thingy} with the default user data.\newline
     }
    }
 
@@ -218,13 +217,14 @@
    \newline
    See \textit{Example 1} if you don't know what I mean.
 
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%
 
  \newpage
 
 
   \subsection{Picking up the lost objects}
    For this there's another kind of POST necessary.\newline
-   The POST is destinated to \texttt{CServer/echowash.php}:\newline\newline
+   The POST is designated to \texttt{CServer/echowash.php}:\newline\newline
    \begin{tabular}[ht]{|c|l|}
     \hline
     POST variable & Definition\\
@@ -256,12 +256,80 @@
      \vspace{4mm}
      \small\texttt{Kleidung=thingy \\ Username=Hugo \\ Password=mycock \\ TakeAway=true \\}
      \normalsize\newline
-     This will try to pick up \texttt{thingy} with the default user datas.\newline
+     This will try to pick up \texttt{thingy} with the default user data.\newline
     }
    }
    \\
    \newline
    You'll also receive a status message after POSTing.\newline\newline
+
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%
+
+ \newpage
+
+
+  \subsection{Working with the scoring}
+   For this there's another kind of POST necessary.\newline
+   The POST is designated to \texttt{CServer/echowash.php}:\newline\newline
+   \begin{tabular}[ht]{|c|l|}
+    \hline
+    POST variable & Definition\\
+    \hline\hline
+    \texttt{Score} & Just send a "True" here.\\
+    \hline
+    \texttt{Username} & The username which the user has set.\\
+ 		   & If \texttt{NULL}, the default value \textbf{MUST BE} \texttt{Hugo}\\
+    \hline
+    \texttt{Password} & The password which the user has set.\\
+		   & If \texttt{NULL}, the default value \textbf{MUST BE} \texttt{mycock}\\
+    \hline
+   \end{tabular}
+   \\
+   \newline
+
+   For the current highscore use \texttt{waschi.org\/highscore.php}:\newline\newline
+   \begin{tabular}[ht]{|c|l|}
+    \hline
+    POST variable & Definition\\
+    \hline\hline
+    \texttt{action} & POST a "list" here.\\
+    \hline
+   \end{tabular}
+   \\
+
+   You want some examples? You'll get some:\\
+   \newline\newline
+
+
+   \fcolorbox{black}{lightgray}{
+    \parbox{\textwidth}{
+     \textbf{Example 5.1: How often did I get my laundry?}
+     \hrule
+     \vspace{4mm}
+     \small\texttt{Username=Hugo \\ Password=mycock \\ Score=true \\}
+     \normalsize\newline
+     This will answer with the current score of \texttt{Hugo}.\newline
+    }
+   }
+   \\
+   \newline
+   You'll also receive a status message after POSTing.\newline\newline
+
+   \fcolorbox{black}{lightgray}{
+    \parbox{\textwidth}{
+     \textbf{Example 5.2: Who is the master washer?}
+     \hrule
+     \vspace{4mm}
+     \small\texttt{action=list \\}
+     \normalsize\newline
+     This will answer with a list of the top washers and their score.\newline
+    }
+   }
+   \\
+   \newline
+   You'll also receive a status message after POSTing.\newline\newline
+
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%
 
  \newpage
 
@@ -278,6 +346,7 @@
    \item All those who want to develop for Waschi.
   \end{itemize}
 
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%
 
  \newpage
 

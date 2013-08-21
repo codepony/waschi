@@ -1,0 +1,7 @@
+*.swp
+key.php
+test.php
+*.aux
+*.log
+*.pdf
+*.toc
