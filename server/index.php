@@ -54,7 +54,10 @@ Pl&ouml;tzlich aufgetauchte Gegenst&auml;nde mit unbekannter Herkunft: <br />
 <br />
 <br />
 Aktuelle Highscore: <br />
-<?php echo(nl2br(post_request($remote_highscore, array("action" => "list"))["content"])); ?>
+<?php
+$highscore = post_request($remote_highscore, array("action" => "list");
+echo(nl2br($highscore["content"]));
+?>
 <!-- Footer START | PLEASE don't remove this (Copyrightinformation)-->
 <a href="https://github.com/MeikoDis/waschi">Waschi</a> is licensed under <a href="http://www.gnu.org/licenses/agpl-3.0.de.html" target="_blank">GNU-AGPL v3</a> &copy; 2013 by <a href="http://meikodis.org/">MeikoDis</a>.<br />
 Further information, see <a href="http://waschi.org/" target="_blank">Waschi Waschmaschinenverbund</a>
