@@ -90,3 +90,5 @@ See more at http://waschi.org/
 - echowash.php - For client reasons. ( see washi.lisp for example )
 - found - Your list of found laundry. 
 
+### How to make a client?
+Have a look at doc/ and you will find anything you need. Also you can check the currently available clients to get an overview.
