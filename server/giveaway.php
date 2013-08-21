@@ -21,7 +21,7 @@
 #    Identi.ca or Twitter:  @MeikoDis
 #    Email or Jabber:       meikodis@meikodis.org
 
-$remote_highscore = "http://waschi.org/test/highscore.php";
+$remote_highscore = "http://waschi.org/highscore.php";
 
 function take_away($object, $user, $pwd, $ff, $uf, $pf, $status='', $answer=FALSE) {
   # Change here if you want a different one:
