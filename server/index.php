@@ -55,7 +55,7 @@ Pl&ouml;tzlich aufgetauchte Gegenst&auml;nde mit unbekannter Herkunft: <br />
 <br />
 Aktuelle Highscore: <br />
 <?php
-$highscore = post_request($remote_highscore, array("action" => "list");
+$highscore = post_request($remote_highscore, array("action" => "list"));
 echo(nl2br($highscore["content"]));
 ?>
 <!-- Footer START | PLEASE don't remove this (Copyrightinformation)-->
